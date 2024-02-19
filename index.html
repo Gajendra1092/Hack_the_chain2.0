@@ -75,7 +75,7 @@
                   <div class="row">
                     <div class="col-4">
                       <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Description</a>
+                        <a class="list-group-item list-group-item-action active" id="list-home-list"  data-toggle="list" href="#list-home" role="tab" aria-controls="home">Description</a>
                         <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Funds</a>
                         <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Bills</a>
                       </div>
@@ -183,72 +183,162 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="text-decoration: none;">
-                    <div class="info_event" style="display: flex;justify-content:space-between;width: 70vw;">
-                      <div class="info_event" style="display: flex;justify-content:space-between;width: 70vw;">
-                        <p>Event 2</p>
-                        <p style="color: grey;text-decoration: none;">Edited by - Ashish gaandu (17/02/24)</p>
-                      </div>  
-                    </div>
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="text-decoration: none;">
-                    <div class="info_event" style="display: flex;justify-content:space-between;width: 70vw;">
-                      <p>Event 3</p>
-                      <p style="color: grey;text-decoration: none;">Edited by - Ashish gaandu (17/02/24)</p>
-                    </div>
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <br><br>
-                    <button type="button" class="btn btn-success" onclick="addRow()">Add Event</button>
-                    <button type="button" class="btn btn-danger" onclick="deleteRow()">Delete Event</button>
+                    <button type="button" class="btn btn-success" onclick="addAccordion()">Add Event</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteEvent()">Delete Event</button>
     </div>
 </body>
 
-  <!-- <script>
-    function addRow() {
-      var table = document.getElementById("table");
-      var row = table.insertRow(-1);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      cell1.innerHTML = "NEW CELL1";
-      cell2.innerHTML = "NEW CELL2";
-      cell3.innerHTML = "NEW CELL3";
-      cell4.innerHTML = "NEW CELL4";
-    }
+  <script>
+    var accordionCount = 1;
+
+function addAccordion() {
+    // Increment accordion count
+    accordionCount++;
+
+    // Generate unique IDs for the new accordion
+    var accordionId = "accordion" + accordionCount;
+    var collapseId = "collapse" + accordionCount;
+    var headingId = "heading" + accordionCount;
+
+    // Create HTML for the new accordion
+    var newAccordion = `
+        <div class="card">
+            <div class="card-header" id="${headingId}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}" style="text-decoration: none;">
+                        <div class="info_event" style="display: flex;justify-content:space-between;width: 70vw;">
+                            <p>Event ${accordionCount}</p>
+                            <p style="color: grey;text-decoration: none;">Edited by - Ashish gaandu (17/02/24)</p>
+                        </div>
+                    </button>
+                </h5>
+            </div>
+            <div id="${collapseId}" class="collapse show" aria-labelledby="${headingId}" data-parent="#${accordionId}">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-home-list"  data-toggle="list" href="#list-home" role="tab" aria-controls="home">Description</a>
+                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Funds</a>
+                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Bills</a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><div class="form-floating">
+                          <textarea class="form-control" placeholder="Description" id="floatingTextarea2" style="height: 100px"></textarea>
+                          <label for="floatingTextarea2">Description</label>
+                        </div></div>
+
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                          <table class="table">
+                          
+                          <tbody>
+                            <tr>
+                              <td>Fund Asked :</td>
+                              <td><form class="row g-3">                               
+                                <div class="col-auto">
+                                  <input type="number" class="form-control" id="data1" placeholder="Amount">
+                                </div>
+                              </form></td>
+                              </tr>
+                            <tr>
+                          
+                              <td>Fund Raised :</td>
+                              <td><form class="row g-3">                               
+                                <div class="col-auto">
+                                  <input type="number" class="form-control" id="data2" placeholder="Amount">
+                                </div>
+                              </form></td>
+                              
+                            </tr>
+                            <tr>
+                              <td>Fund Used :</td>
+                              <td><form class="row g-3">                               
+                                <div class="col-auto">
+                                  <input type="number" class="form-control" id="data3" placeholder="Amount">
+                                </div>
+                              </form></td>
+                            </tr>
+                          </tbody>
+                        </table></div>
+
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Expenditure</th>
+                                <th scope="col">Bills</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Day 1</td>
+                                <td>3000</td>
+                                <td><form action="/submit_pdf" method="post" enctype="multipart/form-data">
+                                  <input type="file" id="pdfInput" name="pdfInput" accept=".pdf">
+                                  <input type="submit" value="Upload PDF" name="submit">
+                                </form>
+                                <!-- <div class="mb-3">
+                                  <label for="formFile" class="form-label">Default file input example</label>
+                                  <input class="form-control form-control-sm" type="file" id="formFile">
+                                </div>
+                                 -->
+                                
+                                </td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Day 2</td>
+                                <td>3000</td>
+                                <td><form action="/submit_pdf" method="post" enctype="multipart/form-data">
+                                  <input type="file" id="pdfInput" name="pdfInput" accept=".pdf">
+                                  <input type="submit" value="Upload PDF" name="submit">
+                                </form>
+                                </td>
+                                
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Day 3</td>
+                                <td>3000</td>
+                                <td><form action="/submit_pdf" method="post" enctype="multipart/form-data">
+                                  <input type="file" id="pdfInput" name="pdfInput" accept=".pdf">
+                                  <input type="submit" value="Upload PDF" name="submit">
+                                </form>
+                                </td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+                          <button type="button" class="btn btn-success" onclick="addRow()">Add Row</button>
+                          <button type="button" class="btn btn-danger" onclick="deleteRow()">Delete Row</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Append the new accordion to the accordion container
+    document.getElementById("accordion").innerHTML += newAccordion;
+}
+
     
-    function deleteRow() {
-      var table = document.getElementById("myTable");
-      var rowCount = table.rows.length;
-      if(rowCount > 1) { //ensure that the header row is not deleted
-        table.deleteRow(-1);
-      }
-    }
-    </script> -->
+  </script>
+
+    
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
