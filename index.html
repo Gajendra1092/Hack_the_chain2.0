@@ -58,12 +58,12 @@
         <div class="events">
           <h2 style="color: white;">Events</h2>
           <div id="accordion">
-      
+    
           </div>
         </div>
         <br><br>
                     <button type="button" class="btn btn-success" onclick="addAccordion()">Add Event</button>
-                    <button type="button" class="btn btn-danger" onclick="deleteEvent()">Delete Event</button>
+                    <button type="button" class="btn btn-success" onclick="">Save Changes</button>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -97,8 +97,12 @@
                     <h5 class="mb-0">
                         <button class="btn btn-link" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}" style="text-decoration: none;">
                             <div class="info_event" style="display: flex;justify-content:space-between;width: 70vw;">
-                                <p>Event ${accordionCount}</p>
-                                <p style="color: grey;text-decoration: none;">Edited by - Ashish gaandu (17/02/24)</p>
+                              <div class="form-group row">
+                    <div class="col-14">
+                        <input class="form-control" type="anything" step="1" placeholder = "Event Name">
+                    </div>
+                </div>
+
                             </div>
                         </button>
                     </h5>
@@ -198,6 +202,7 @@
         addRow(tableBody);
     });
 
+    
     function addRow(tableBody) {
     var rowCount = tableBody.find('tr').length + 1; // Get the current row count
     // Create a new row with necessary elements
