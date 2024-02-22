@@ -3,67 +3,151 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     <style>
       *{
         margin: 0px;
         padding: 0px;
+        
       }
-    </style>
+    
+      .container-fluid {
+        margin: 0px;
+        padding: 0px;
+      }
+      .events{
+        min-height: 300px;
+        width: auto;
+        background-image: url('/Screenshot\ 2024-02-21\ 205500.png');
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 8px;
+        margin:20px;
+      }
+     .submit{
+        position: sticky; 
+        bottom: 0px; 
+        z-index:100;
+        background-color: whitesmoke;
+     }
+     /* .total_funds_given{
+        width:30vw;
+        height: 7vh;
+        background-color: grey;
+        border-radius: 4px;
+        text-align: center;
+        padding: 1vh;
+        font-weight: bold;
+        color: white;
+        margin: 10px;
+     }
+     .total_funds_given:hover{
+           margin-right: 450px;
+           transition-timing-function: ease-in-out;
+     } */
+     
+       .profile-pic {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            overflow: hidden;
+}
+</style>
+
+
+
+    
+   
   </head>
-<body style="background-image: linear-gradient(0deg, #0f051d 30%, #130749 70%);">
-    <div class="container" style="background-image: linear-gradient(0deg, #0f051d 30%, #130749 70%);"height: 100vh;">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="border-radius: 8px;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">NEON</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>   
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+<body style="background-image: linear-gradient(hsl(0, 0%, 100%),hsl(0, 0%, 95%));height: auto;">
+    <div class="container-fluid" style="background-image: linear-gradient(hsl(0, 0%, 100%),hsl(0, 0%, 100%));height: 100%;width: 100%;">
+        <nav class="bg-gray-800" style="position: sticky; top: 0; z-index:100;">
+
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo and Dashboard -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto mr-2" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                        <span class="text-white text-sm font-medium">LogicLegion</span>
+                    </div>
+                    <!-- Navigation Links (Desktop) -->
+                    <div class="hidden sm:block">
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Clubs</a>
+                            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"><img src="/th.jpg" alt="User Photo" class="profile-pic"></a>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <div class="sm:hidden">
+                        <button type="button" class="text-gray-400 hover:text-white focus:outline-none">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
+    
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Clubs</a>
+                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">USER</a>
+            </div>
+        </div>
         
         <br><br>
-        <div class="toptable" >
+        <!-- <div class="toptable" >
           <table class="table" style="border-collapse: separate;
           border-spacing: 0;">
             <thead>
                 <tr>
-                    <th scope="col" style="border-radius:8px 0px 0px 0px;"><h3>Total Fund Given</h3></th>
-                    <th scope="col"  style="border-radius:0px 8px 0px 0px;"><h3>Remaining Fund</h3></th>
+                    <div class="upper" style="display: flex;justify-content: center;">
+                        <div class="total_funds_given">
+                            Total Funds Given
+                       </div>
+                       <div class="remaining_fund" style="width:30vw;height: 7vh;background-color: grey;border-radius: 4px;text-align: center;padding: 1vh;font-weight: bold;color: white;margin: 10px;">
+                           Remaining Fund
+                      </div>
+                    </div>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                   <td  style="border-radius: 0px 0px 0px 8px;">$16,000.00</td>
-                   <td  style="border-radius: 0px 0px 8px 0px;">$12,000.00</td>
+                   <td></td>
+                   <td></td>
                      
                 </tr>
             </tbody>
         </table>
-        </div>
+        </div> -->
         
         
         <div class="events">
-          <h2 style="color: white;">Events</h2>
-          <div id="accordion">
-    
+          <h2 class = "bg-gray-600" style="color: white;text-align: center;height: 8vh;font-size: larger;padding: 10px;font-family: sans-serif;border-radius: 8px 8px 0px 0px;">Events</h2>
+          <div id="accordion" style="margin: 7px;">
+                  <p id="accordPara" style="color: gray;text-align: center;">Events will be shown here.</p>
+          </div>
+
+          <div class="buttons" style="display: flex;justify-content: center;">
+            <button type="button" class="btn btn-success" onclick="addAccordion();deleteParagraph()" id="addEventbutton" style="width: 30vw;border-radius: 5px;margin: 20px;">Add Event</button>
+           
           </div>
         </div>
         <br><br>
-                    <button type="button" class="btn btn-success" onclick="addAccordion()">Add Event</button>
-                    <button type="button" class="btn btn-success" onclick="">Save Changes</button>
+        <div class="submit">
+            <button type="button" class="btn btn-outline-success" style="width: 100vw;border-radius: 0px;">Save Changes</button>
+        </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -187,6 +271,7 @@
                     </div>
                 </div>
             </div>
+            <br>
         `;
 
         // Append the new accordion to the accordion container
@@ -245,6 +330,12 @@ $(document).on('click', '.deleteRowButton', function() {
 });
 
 </script>
+<script>
+    function deleteParagraph() {
+      var paragraph = document.getElementById("accordPara");
+      paragraph.remove();
+    }
+    </script>
 
 
 </html>
